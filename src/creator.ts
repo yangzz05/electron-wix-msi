@@ -21,6 +21,7 @@ export interface MSICreatorOptions {
   exe: string;
   extensions?: Array<string>;
   language?: number;
+  codepage?: number;
   manufacturer: string;
   name: string;
   outputDirectory: string;
@@ -72,6 +73,7 @@ export class MSICreator {
   public exe: string;
   public extensions: Array<string>;
   public language: number;
+  public codepage: number;
   public manufacturer: string;
   public name: string;
   public outputDirectory: string;
@@ -101,6 +103,7 @@ export class MSICreator {
     this.exe = options.exe.replace(/\.exe$/, '');
     this.extensions = options.extensions || [];
     this.language = options.language || 1033;
+    this.codepage = options.codepage || 1252;
     this.manufacturer = options.manufacturer;
     this.name = options.name;
     this.outputDirectory = options.outputDirectory;
@@ -199,6 +202,7 @@ export class MSICreator {
       '{{ApplicationShortName}}': this.shortName,
       '{{AppUserModelId}}': this.appUserModelId,
       '{{Language}}': this.language.toString(10),
+      '{{Codepage}}': this.codepage.toString(10),
       '{{Manufacturer}}': this.manufacturer,
       '{{ShortcutFolderName}}': this.shortcutFolderName,
       '{{ShortcutName}}': this.shortcutName,
