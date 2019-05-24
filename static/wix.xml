@@ -4,7 +4,7 @@
           Name="{{ApplicationName}}"
           Version="{{Version}}"
           Manufacturer="{{Manufacturer}}"
-          Language="{{Language}}">
+          Language="{{Language}}" Codepage="{{Codepage}}">
     <!-- Only run this installer on Windows 7 or up (or if it's already installed, I guess) -->
     <!-- <Condition Message="This application is only supported on Windows 7 or higher.">
       <![CDATA[Installed OR (VersionNT >= 601)]]>
